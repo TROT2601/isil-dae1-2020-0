@@ -10,6 +10,7 @@
     <modules>
         <module>00-javaee-util</module>
         <module>01-javaee-jdbc</module>
+        <module>02-javaee-jdbc</module>
     </modules>
     <packaging>pom</packaging>
 
