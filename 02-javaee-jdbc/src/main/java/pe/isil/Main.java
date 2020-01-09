@@ -17,10 +17,8 @@ public class Main {
 
         CursoDAO cursoDAO = new CursoDAO();
         cursoDAO.crear(curso);
-        List<Curso> listar = cursoDAO.listar();
-        for (Curso curso1: listar) {
-            System.out.println("=> " + curso1);
-        }
+
+        listarTodos();
 
         curso.setNombre("DAE 1");
         curso.setCreditos(4);
@@ -28,18 +26,20 @@ public class Main {
 
         cursoDAO.modificar(curso);
 
-        listar = cursoDAO.listar();
-        for (Curso curso1: listar) {
-            System.out.println("=> " + curso1);
-        }
+        listarTodos();
 
         cursoDAO.eliminar(curso);
 
-        listar = cursoDAO.listar();
+        listarTodos();
+
+    }
+
+    public static void listarTodos(){
+        CursoDAO cursoDAO = new CursoDAO();
+        List<Curso> listar = cursoDAO.listar();
         for (Curso curso1: listar) {
             System.out.println("=> " + curso1);
         }
-
     }
 
 }
