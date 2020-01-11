@@ -11,6 +11,7 @@
         <module>00-javaee-util</module>
         <module>01-javaee-jdbc</module>
         <module>02-javaee-jdbc</module>
+        <module>03-javaee-web</module>
     </modules>
     <packaging>pom</packaging>
 
