@@ -25,3 +25,6 @@ WHERE id = idTo;
 
 return true;
 END;
+
+
+select transfer(2, 1, 100);
