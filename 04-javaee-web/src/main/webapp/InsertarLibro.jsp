@@ -36,7 +36,7 @@
 
         filas = sentencia.executeUpdate(SQL);
 
-        //response.sendRedirect("MostrarLibros.jsp");
+        response.sendRedirect("MostrarLibros.jsp");
 
     }catch (ClassNotFoundException e){
         System.out.println("Error en la carga del driver " + e.getMessage());
