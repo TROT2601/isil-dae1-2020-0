@@ -8,7 +8,14 @@ public class DataBaseHelper {
     private static final String USER = "isil";
     private static final String PASSWORD = "isil";
 
-    public int modificarRegistro(String consultaSQL){
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName(DRIVER);
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+
+ /*   public int modificarRegistro(String consultaSQL){
         Connection conexion = null;
         Statement sentencia = null;
         int filasAfectadas = 0;
@@ -64,6 +71,6 @@ public class DataBaseHelper {
         }
 
         return filas;
-    }
+    }*/
 
 }

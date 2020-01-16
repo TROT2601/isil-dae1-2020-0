@@ -6,16 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="pe.isil.util.DataBaseHelper" %>
+<%@ page import="pe.isil.model.Libro" %>
+<%@ page import="pe.isil.dao.LibroDAO" %>
 
 <%
     String isbn = request.getParameter("isbn");
     String titulo = request.getParameter("titulo");
     String categoria = request.getParameter("categoria");
 
-    String SQL = "INSERT INTO libros(isbn, titulo,categoria) VALUE ('"+isbn+"', '"+titulo+"', '"+categoria+"' )";
+    Libro libro = new Libro(isbn, titulo, categoria);
+    LibroDAO dao = new LibroDAO();
+    dao.crear(libro);
 
-    DataBaseHelper db = new DataBaseHelper();
-    int filas = db.modificarRegistro(SQL);
     response.sendRedirect("MostrarLibros.jsp");
 %>

@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="pe.isil.util.DataBaseHelper" %>
+<%@ page import="pe.isil.dao.LibroDAO" %>
+<%@ page import="pe.isil.model.Libro" %>
+<%@ page import="java.util.List" %>
 
 <html>
 <head>
@@ -17,36 +20,20 @@
 
 <%
 
-    ResultSet resultSet = null;
+    LibroDAO dao = new LibroDAO();
+    List<Libro> libros = dao.listar();
 
-    try {
-        String SQL = "SELECT isbn, titulo, categoria FROM libros";
-        DataBaseHelper db = new DataBaseHelper();
-        resultSet = db.seleccionarRegistros(SQL);
-        while (resultSet.next()){
+    for (Libro libro: libros) {
  %>
-                <%= resultSet.getString("isbn") %>
-                <%= resultSet.getString("titulo") %>
-                <%= resultSet.getString("categoria") %>
+                <%= libro.getIsbn() %>
+                <%= libro.getTitle() %>
+                <%= libro.getCategoria() %>
                     <br/>
 <%
         }
 
-        } catch (SQLException e){
-            System.out.println("Error accediendo a la base de datos " + e.getMessage());
-        }finally {
-
-            if(resultSet != null){
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    System.out.println("Error cerrando el resultset "+ e.getMessage());
-                }
-            }
-        }
-
 %>
 
-
+<a href="index.html">insertar Libro</a>
 </body>
 </html>
