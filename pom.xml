@@ -14,6 +14,7 @@
         <module>03-javaee-web</module>
         <module>04-javaee-web</module>
         <module>05-javaee-web</module>
+        <module>06-javaee-web</module>
     </modules>
     <packaging>pom</packaging>
 
